@@ -20,9 +20,36 @@
 
 .app-main {
   flex: 1;
-  padding: 2rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  min-height: 0; /* flexbox 축소 버그 방지 */
 }
 
+/* 모바일 반응형 (768px 이하에서만 세로 레이아웃) */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0.8rem 1rem;
+  }
+
+  .app-header h1 {
+    font-size: 1.2rem;
+  }
+
+  .app-main {
+    flex-direction: column;
+  }
+
+  /* 3D 뷰를 상단에 배치, 60% 높이 */
+  .app-main > :first-child {
+    flex: none;
+    height: 60%;
+  }
+
+  /* 슬라이더 패널을 하단에 배치, 40% 높이 */
+  .app-main > :last-child {
+    flex: none;
+    height: 40%;
+    overflow-y: auto;
+  }
+}
