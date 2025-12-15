@@ -5,7 +5,7 @@
 - **React**: 18.x (최신)
 - **Vite**: 5.x (빌드 도구)
 - **Three.js**: 0.160.x (3D 라이브러리)
-- **TypeScript**: 사용 여부 추후 결정 (현재는 JavaScript)
+- **TypeScript**: 5.3.x (타입 안정성)
 
 ## 개발 설정
 
@@ -24,11 +24,15 @@
 
 ```json
 {
-  "react": "^18.x",
-  "react-dom": "^18.x",
+  "react": "^18.2.0",
+  "react-dom": "^18.2.0",
   "three": "^0.160.0",
-  "vite": "^5.0.0",
-  "@vitejs/plugin-react": "^4.x"
+  "vite": "^5.0.8",
+  "@vitejs/plugin-react": "^4.2.1",
+  "typescript": "^5.3.3",
+  "@types/react": "^18.2.43",
+  "@types/react-dom": "^18.2.17",
+  "@types/three": "^0.160.0"
 }
 ```
 

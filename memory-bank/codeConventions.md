@@ -5,7 +5,7 @@
 - **컴포넌트**: PascalCase (예: `RobotVisualization.jsx`)
 - **유틸리티/훅**: camelCase (예: `useThreeScene.js`)
 - **상수**: UPPER_SNAKE_CASE (예: `ROBOT_CONFIG.js`)
-- **파일 확장자**: `.jsx` (React 컴포넌트), `.js` (일반 JavaScript)
+- **파일 확장자**: `.tsx` (React 컴포넌트), `.ts` (일반 TypeScript)
 
 ## 컴포넌트 구조
 
