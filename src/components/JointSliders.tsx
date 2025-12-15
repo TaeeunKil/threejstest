@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import './JointSliders.css';
+import { useState, useEffect } from "react";
+import "./JointSliders.css";
 
 interface JointSlidersProps {
   jointAngles: number[];
@@ -7,14 +7,15 @@ interface JointSlidersProps {
   onReset: () => void;
 }
 
-const JOINT_NAMES = ['Base', 'Shoulder', 'Elbow', 'Wrist1', 'Wrist2', 'Wrist3'];
+const JOINT_NAMES = ["Base", "Shoulder", "Elbow", "Wrist1", "Wrist2", "Wrist3"];
+// 실제 산업용 로봇 팔의 현실적인 관절 각도 제한
 const JOINT_RANGES = [
-  { min: -180, max: 180 }, // Base
-  { min: -180, max: 180 }, // Shoulder
-  { min: -180, max: 180 }, // Elbow
-  { min: -180, max: 180 }, // Wrist1
-  { min: -180, max: 180 }, // Wrist2
-  { min: -180, max: 180 }, // Wrist3
+  { min: -170, max: 170 }, // Base - 거의 전체 회전 (물리적 케이블 제약)
+  { min: -90, max: 90 }, // Shoulder - 위아래 움직임 제한
+  { min: -150, max: 150 }, // Elbow - 팔꿈치 굽힘 제한
+  { min: -180, max: 180 }, // Wrist1 - 손목 회전 (거의 자유)
+  { min: -90, max: 90 }, // Wrist2 - 손목 상하 제한
+  { min: -180, max: 180 }, // Wrist3 - 손목 회전 (거의 자유)
 ];
 
 export default function JointSliders({
@@ -57,8 +58,11 @@ export default function JointSliders({
     }
   };
 
-  const handleInputKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+  const handleInputKeyDown = (
+    index: number,
+    e: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    if (e.key === "Enter") {
       handleInputBlur(index);
       e.currentTarget.blur();
     }
@@ -138,4 +142,3 @@ export default function JointSliders({
     </div>
   );
 }
-
